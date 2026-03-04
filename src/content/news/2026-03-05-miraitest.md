@@ -1,7 +1,10 @@
 ---
-title: "投稿テスト"
+title: "ブログを書きました。"
 date: 2026-03-05
-description: "お知らせ投稿のテストです。"
+description: "
+ブログを書きました。
+[text](https://ojochi510510-oss.github.io/blog/2026-03-04-first-post/)
+"
 ---
 
-これはお知らせ投稿のテスト本文です。
+備考：
