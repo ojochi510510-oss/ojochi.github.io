@@ -16,27 +16,11 @@ const resolveLink = (link: string) =>
 	description="作業記録と更新情報を静かに整理した個人サイトです。"
 >
 	<section class="hero">
-		<div class="hero-copy">
-			<p class="hero-kicker">ojochi archive</p>
-			<h1>作業記録と更新履歴を、落ち着いた形で整理しています。</h1>
-			<p class="hero-summary">必要な更新だけを短く追えて、記事はあとから静かに辿れる構成です。</p>
-		</div>
-		<div class="hero-panel">
-			<p class="hero-panel-label">Contents</p>
-			<ul class="hero-stats">
-				<li>
-					<strong>{allNews.length}</strong>
-					<span>お知らせ</span>
-				</li>
-				<li>
-					<strong>{allBlog.length}</strong>
-					<span>ブログ記事</span>
-				</li>
-			</ul>
-			<div class="hero-actions">
-				<a class="button-link" href={`${BASE_URL}news/`}>更新一覧</a>
-				<a class="button-link button-link-secondary" href={`${BASE_URL}blog/`}>記事一覧</a>
-			</div>
+		<p class="hero-kicker">ojochi archive</p>
+		<h1>作業記録と更新履歴。</h1>
+		<div class="hero-meta" aria-label="コンテンツ数">
+			<span>{allNews.length} News</span>
+			<span>{allBlog.length} Blog</span>
 		</div>
 	</section>
 
