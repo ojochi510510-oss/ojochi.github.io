@@ -1,18 +1,44 @@
 ---
 interface Props {
 	title: string;
+	currentPath?: string;
 }
 
-const { title } = Astro.props;
+const { title, currentPath = "/" } = Astro.props;
 const BASE_URL = import.meta.env.BASE_URL;
+const navItems = [
+	{ href: `${BASE_URL}`, label: "Home" },
+	{ href: `${BASE_URL}news/`, label: "お知らせ" },
+	{ href: `${BASE_URL}blog/`, label: "Blog" },
+];
+const normalizePath = (value: string) => (value.endsWith("/") ? value : `${value}/`);
+const activePath = normalizePath(currentPath);
 ---
 
 <header class="site-header">
 	<div class="container header-inner">
-		<p class="site-title"><a href={BASE_URL}>{title}</a></p>
+		<div class="site-brand">
+			<p class="site-kicker">Personal notes and updates</p>
+			<p class="site-title"><a href={BASE_URL}>{title}</a></p>
+		</div>
 		<nav class="site-nav" aria-label="メインナビゲーション">
-			<a href={`${BASE_URL}news/`}>お知らせ</a>
-			<a href={`${BASE_URL}blog/`}>Blog</a>
+			{
+				navItems.map((item) => {
+					const itemPath = normalizePath(new URL(item.href, "https://example.com").pathname);
+					const isHome = itemPath === normalizePath(BASE_URL);
+					const isActive = isHome ? activePath === itemPath : activePath.startsWith(itemPath);
+
+					return (
+						<a
+							class:list={["site-nav-link", { "is-active": isActive }]}
+							href={item.href}
+							aria-current={isActive ? "page" : undefined}
+						>
+							{item.label}
+						</a>
+					);
+				})
+			}
 		</nav>
 	</div>
 </header>

@@ -1,4 +1,4 @@
-﻿---
+---
 import Card from "../components/Card.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getAllBlog, getUnifiedNews } from "../lib/content";
@@ -7,12 +7,47 @@ const [allNews, allBlog] = await Promise.all([getUnifiedNews(), getAllBlog()]);
 const latestNews = allNews.slice(0, 3);
 const latestBlog = allBlog.slice(0, 5);
 const BASE_URL = import.meta.env.BASE_URL;
+const resolveLink = (link: string) =>
+	link.startsWith("/") ? `${BASE_URL}${link.slice(1)}` : link;
 ---
 
-<BaseLayout title="ojochiの作業部屋">
+<BaseLayout
+	title="ojochiの作業部屋"
+	description="更新情報とブログをまとめた個人サイトです。最近の作業記録や調整内容を見やすく整理しています。"
+>
+	<section class="hero">
+		<div class="hero-copy">
+			<p class="hero-kicker">ojochi personal homepage</p>
+			<h1>更新履歴と作業メモを、軽く追える形でまとめた HP です。</h1>
+			<p class="hero-description">
+				お知らせは最新の変化を短く、Blog は作業の背景や実装内容を少し詳しく残しています。
+			</p>
+		</div>
+		<div class="hero-panel">
+			<p class="hero-panel-label">現在の内容</p>
+			<ul class="hero-stats">
+				<li>
+					<strong>{allNews.length}</strong>
+					<span>お知らせ</span>
+				</li>
+				<li>
+					<strong>{allBlog.length}</strong>
+					<span>ブログ記事</span>
+				</li>
+			</ul>
+			<div class="hero-actions">
+				<a class="button-link" href={`${BASE_URL}news/`}>更新を見る</a>
+				<a class="button-link button-link-secondary" href={`${BASE_URL}blog/`}>記事一覧へ</a>
+			</div>
+		</div>
+	</section>
+
 	<section class="section">
 		<div class="section-head">
-			<h1>お知らせ</h1>
+			<div>
+				<p class="section-kicker">Update feed</p>
+				<h2>お知らせ</h2>
+			</div>
 			<a href={`${BASE_URL}news/`}>一覧を見る</a>
 		</div>
 		<article class="card news-summary-card">
@@ -32,8 +67,8 @@ const BASE_URL = import.meta.env.BASE_URL;
 								{
 									item.link && (
 										<p class="news-link-wrap">
-											<a class="news-link" href={item.link}>
-												ブログを読む
+											<a class="news-link" href={resolveLink(item.link)}>
+												詳細を見る
 											</a>
 										</p>
 									)
@@ -50,7 +85,10 @@ const BASE_URL = import.meta.env.BASE_URL;
 
 	<section class="section">
 		<div class="section-head">
-			<h2>Blog</h2>
+			<div>
+				<p class="section-kicker">Recent posts</p>
+				<h2>Blog</h2>
+			</div>
 			<a href={`${BASE_URL}blog/`}>一覧を見る</a>
 		</div>
 		<div class="cards">

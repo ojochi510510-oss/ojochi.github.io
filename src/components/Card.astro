@@ -12,10 +12,15 @@ const dateLabel = date.toLocaleDateString("ja-JP", {
 	month: "2-digit",
 	day: "2-digit",
 });
+const dateTime = date.toISOString().slice(0, 10);
 ---
 
-<article class="card">
-	<h3 class="card-title"><a href={href}>{title}</a></h3>
-	<p class="card-date">{dateLabel}</p>
+<article class="card entry-card">
+	<p class="card-eyebrow">Blog</p>
+	<h3 class="card-title"><a class="card-title-link" href={href}>{title}</a></h3>
+	<p class="card-date"><time datetime={dateTime}>{dateLabel}</time></p>
 	<p class="card-description">{description}</p>
+	<p class="card-action">
+		<a class="card-readmore" href={href}>記事を読む</a>
+	</p>
 </article>

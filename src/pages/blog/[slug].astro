@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BaseLayout title={`${post.data.title} | ojochiの作業部屋`}>
+<BaseLayout title={post.data.title} description={post.data.description}>
 	<article class="post">
 		<header class="post-header">
 			<h1>{post.data.title}</h1>

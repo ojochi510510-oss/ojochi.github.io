@@ -7,9 +7,16 @@ const allBlog = await getAllBlog();
 const BASE_URL = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Blog | ojochiの作業部屋">
+<BaseLayout
+	title="Blog"
+	description="作業メモ、実装の記録、サイト更新の背景をまとめたブログ一覧です。"
+>
 	<section class="section">
-		<h1>Blog一覧</h1>
+		<div class="page-intro">
+			<p class="section-kicker">Archive</p>
+			<h1>Blog一覧</h1>
+			<p>作業の記録や変更理由を、あとから追いやすい形で残しています。</p>
+		</div>
 		<div class="cards">
 			{
 				allBlog.map((item) => (

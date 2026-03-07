@@ -10,6 +10,9 @@ interface Props {
 
 const { title, description = "ojochiの作業部屋" } = Astro.props;
 const BASE_URL = import.meta.env.BASE_URL;
+const siteName = "ojochiの作業部屋";
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.toString();
+const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 ---
 
 <!doctype html>
@@ -21,11 +24,21 @@ const BASE_URL = import.meta.env.BASE_URL;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<title>{title}</title>
+		<link rel="canonical" href={canonicalUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<Header title="ojochiの作業部屋" />
-		<main class="container">
+		<a class="skip-link" href="#main-content">本文へ移動</a>
+		<Header title={siteName} currentPath={Astro.url.pathname} />
+		<main class="container" id="main-content">
 			<slot />
 		</main>
 		<Footer />
