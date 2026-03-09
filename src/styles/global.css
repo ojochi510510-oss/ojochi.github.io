@@ -176,7 +176,7 @@ a:hover {
 .section-head h1,
 .section-head h2 {
 	margin: 0;
-	max-width: 14ch;
+	width: 100%;
 	font-family: var(--font-serif);
 	font-size: clamp(1.55rem, 3vw, 2.4rem);
 	font-weight: 500;
@@ -199,7 +199,7 @@ a:hover {
 
 .page-intro h1 {
 	margin: 0;
-	max-width: 14ch;
+	width: 100%;
 	font-family: var(--font-serif);
 	font-size: clamp(2rem, 5vw, 3.2rem);
 	line-height: 1.22;
@@ -209,7 +209,7 @@ a:hover {
 
 .home-hero h1 {
 	margin: 0;
-	max-width: 12ch;
+	width: 100%;
 	font-family: var(--font-serif);
 	font-size: clamp(2.15rem, 5vw, 3.65rem);
 	line-height: 1.2;
@@ -219,14 +219,14 @@ a:hover {
 
 .page-intro-lead,
 .hero-tagline {
-	max-width: 34rem;
+	width: 100%;
 	margin: 0.85rem 0 0;
 	font-size: 0.98rem;
 	color: var(--color-text);
 }
 
 .hero-text {
-	max-width: 32rem;
+	width: 100%;
 	margin: 1.15rem 0 0;
 	color: var(--color-text-muted);
 }
@@ -265,7 +265,7 @@ a:hover {
 }
 
 .prose {
-	max-width: var(--text-width);
+	width: 100%;
 }
 
 .prose p,
@@ -285,7 +285,8 @@ a:hover {
 .text-list,
 .essay-list,
 .works-list,
-.updates-list {
+.updates-list,
+.osanpo-list {
 	display: grid;
 	gap: 1.35rem;
 }
@@ -293,7 +294,8 @@ a:hover {
 .text-entry,
 .essay-block,
 .work-entry,
-.update-item {
+.update-item,
+.osanpo-record {
 	padding-top: 1.15rem;
 	border-top: var(--line-soft);
 }
@@ -301,7 +303,8 @@ a:hover {
 .text-list > :first-child,
 .essay-list > :first-child,
 .works-list > :first-child,
-.updates-list > :first-child {
+.updates-list > :first-child,
+.osanpo-list > :first-child {
 	padding-top: 0;
 	border-top: none;
 }
@@ -312,7 +315,7 @@ a:hover {
 .work-entry h2,
 .update-item h3 {
 	margin: 0;
-	max-width: 18ch;
+	width: 100%;
 	font-family: var(--font-serif);
 	font-size: clamp(1.22rem, 2vw, 1.65rem);
 	font-weight: 500;
@@ -371,11 +374,16 @@ a:hover {
 }
 
 .update-body p {
-	max-width: 34rem;
+	width: 100%;
 }
 
 .section-link {
 	margin-top: 0.9rem;
+}
+
+.osanpo-record p {
+	margin: 0;
+	color: var(--color-text-muted);
 }
 
 .site-footer {

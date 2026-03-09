@@ -1,0 +1,28 @@
+---
+import PageIntro from "../components/PageIntro.astro";
+import { osanpoEntries } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="お散歩" description="歩きながら考えたことを、そのまま並べていくページです。">
+	<section class="section">
+		<PageIntro
+			kicker="osanpo"
+			title="お散歩"
+			lead="お散歩履歴です。"
+		/>
+	</section>
+
+	<section class="section section-lined">
+		<div class="osanpo-list">
+			{
+				osanpoEntries.map((entry) => (
+					<article class="osanpo-record">
+						<p class="entry-meta">{entry.date} {entry.title}</p>
+						<p>{entry.note}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

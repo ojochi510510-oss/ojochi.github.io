@@ -1,7 +1,7 @@
 # ojochiの案内所
 
 Astro で作成した静的サイトです。
-個人HPを「案内所」として構成し、`Home / Profile / Works / Note` の4ページで案内します。
+個人HPを「案内所」として構成し、`Home / Profile / Works / お散歩` の4ページで案内します。
 
 公開URL: https://ojochi510510-oss.github.io/
 
@@ -25,7 +25,8 @@ npm run preview
 
 - `siteMeta`: サイト名とイントロ
 - `works`: Works ページと Home のプレビューに表示する内容
-- `noteThemes`: Note ページと Home の案内に表示するテーマ
+- `noteThemes`: Home に表示する note の案内
+- `osanpoEntries`: お散歩ページと Home の記録表示
 - `profileSections`: Profile ページの本文構成
 - `updates`: Home 下部の更新欄
 - `noteConfig.url`: note の外部URL

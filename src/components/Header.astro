@@ -1,4 +1,6 @@
 ---
+import { noteConfig } from "../data/site";
+
 interface Props {
 	title: string;
 	currentPath?: string;
@@ -10,7 +12,8 @@ const navItems = [
 	{ href: `${BASE_URL}`, label: "Home" },
 	{ href: `${BASE_URL}profile/`, label: "Profile" },
 	{ href: `${BASE_URL}works/`, label: "Works" },
-	{ href: `${BASE_URL}note/`, label: "Note" },
+	{ href: `${BASE_URL}osanpo/`, label: "お散歩" },
+	{ href: noteConfig.url, label: "note", external: true },
 ];
 const normalizePath = (value: string) => (value.endsWith("/") ? value : `${value}/`);
 const activePath = normalizePath(currentPath);
@@ -19,7 +22,7 @@ const activePath = normalizePath(currentPath);
 <header class="site-header">
 	<div class="container header-inner">
 		<div class="site-brand">
-			<p class="site-kicker">Quiet personal directory</p>
+			<p class="site-kicker">ojochi nice log</p>
 			<p class="site-title"><a href={BASE_URL}>{title}</a></p>
 		</div>
 		<nav class="site-nav" aria-label="メインナビゲーション">
@@ -27,13 +30,19 @@ const activePath = normalizePath(currentPath);
 				navItems.map((item) => {
 					const itemPath = normalizePath(new URL(item.href, "https://example.com").pathname);
 					const isHome = itemPath === normalizePath(BASE_URL);
-					const isActive = isHome ? activePath === itemPath : activePath.startsWith(itemPath);
+					const isActive = item.external
+						? false
+						: isHome
+							? activePath === itemPath
+							: activePath.startsWith(itemPath);
 
 					return (
 						<a
 							class:list={["site-nav-link", { "is-active": isActive }]}
 							href={item.href}
 							aria-current={isActive ? "page" : undefined}
+							target={item.external ? "_blank" : undefined}
+							rel={item.external ? "noreferrer" : undefined}
 						>
 							{item.label}
 						</a>
