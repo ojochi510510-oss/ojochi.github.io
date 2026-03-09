@@ -1,89 +1,110 @@
 ---
-import Card from "../components/Card.astro";
+import PageIntro from "../components/PageIntro.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getAllBlog, getUnifiedNews } from "../lib/content";
+import {
+	noteConfig,
+	noteThemes,
+	orientationPoints,
+	siteMeta,
+	updates,
+	works,
+} from "../data/site";
 
-const [allNews, allBlog] = await Promise.all([getUnifiedNews(), getAllBlog()]);
-const latestNews = allNews.slice(0, 3);
-const latestBlog = allBlog.slice(0, 5);
 const BASE_URL = import.meta.env.BASE_URL;
-const resolveLink = (link: string) =>
-	link.startsWith("/") ? `${BASE_URL}${link.slice(1)}` : link;
+const previewWorks = works.slice(0, 3);
 ---
 
-<BaseLayout
-	title="ojochiの作業部屋"
-	description="作業記録と更新情報を静かに整理した個人サイトです。"
->
-	<section class="hero">
-		<p class="hero-kicker">ojochi archive</p>
-		<h1>作業記録と更新履歴。</h1>
-		<div class="hero-meta" aria-label="コンテンツ数">
-			<span>{allNews.length} News</span>
-			<span>{allBlog.length} Blog</span>
+<BaseLayout title={siteMeta.title} description={siteMeta.description}>
+	<section class="home-hero">
+		<div class="hero-copy">
+			<h1>{siteMeta.title}</h1>
+			<p class="hero-tagline">{siteMeta.tagline}</p>
+			<p class="hero-text">{siteMeta.intro}</p>
+		</div>
+		<div class="hero-aside">
+			<p>
+				プロフィールで人となりを、Works で現在地を、Note で長い文章の置き場所を案内しています。
+			</p>
+			<p class="hero-links">
+				<a href={`${BASE_URL}profile/`}>人物紹介を見る</a>
+				<a href={`${BASE_URL}works/`}>Worksを見る</a>
+			</p>
 		</div>
 	</section>
 
-	<section class="section">
-		<div class="section-head">
-			<div>
-				<p class="section-kicker">Update feed</p>
-				<h2>お知らせ</h2>
-			</div>
-			<a href={`${BASE_URL}news/`}>一覧を見る</a>
+	<section class="section section-lined">
+		<PageIntro
+			title="この場所について"
+			lead="更新情報を追いかける場所ではなく、誰が何に向かっているかを静かに見渡すための入口として整えています。"
+		/>
+		<div class="prose">
+			{orientationPoints.map((point) => <p>{point}</p>)}
 		</div>
-		<article class="card news-summary-card">
-			{
-				latestNews.length > 0 ? (
-					<ul class="news-summary-list">
-						{latestNews.map((item) => (
-							<li class="news-summary-item">
-								<p class="card-date">
-									{item.date.toLocaleDateString("ja-JP", {
-										year: "numeric",
-										month: "2-digit",
-										day: "2-digit",
-									})}
-								</p>
-								<p class="card-description">{item.description}</p>
-								{
-									item.link && (
-										<p class="news-link-wrap">
-											<a class="news-link" href={resolveLink(item.link)}>
-												詳細を見る
-											</a>
-										</p>
-									)
-								}
-							</li>
-						))}
-					</ul>
-				) : (
-					<p class="card-description">まだお知らせはありません。</p>
-				)
-			}
-		</article>
 	</section>
 
-	<section class="section">
+	<section class="section section-lined">
 		<div class="section-head">
 			<div>
-				<p class="section-kicker">Recent posts</p>
-				<h2>Blog</h2>
+				<h2>いま手を動かしていること</h2>
 			</div>
-			<a href={`${BASE_URL}blog/`}>一覧を見る</a>
 		</div>
-		<div class="cards">
+		<div class="text-list">
 			{
-				latestBlog.map((item) => (
-					<Card
-						href={`${BASE_URL}blog/${item.slug}/`}
-						title={item.data.title}
-						date={item.data.date}
-						description={item.data.description}
-					/>
+				previewWorks.map((item) => (
+					<article class="text-entry">
+						<p class="entry-meta">{item.category}</p>
+						<h3>{item.title}</h3>
+						<p>{item.description}</p>
+					</article>
 				))
 			}
 		</div>
+		<p class="section-link">
+			<a href={`${BASE_URL}works/`}>Worksの一覧へ</a>
+		</p>
+	</section>
+
+	<section class="section section-lined">
+		<div class="section-head">
+			<div>
+				<h2>noteで続けていく話題</h2>
+			</div>
+		</div>
+		<div class="text-list">
+			{
+				noteThemes.map((theme) => (
+					<article class="text-entry">
+						<h3>{theme.title}</h3>
+						<p>{theme.description}</p>
+					</article>
+				))
+			}
+		</div>
+		<p class="section-link">
+			<a href={noteConfig.url} target="_blank" rel="noreferrer">
+				{noteConfig.label}
+			</a>
+		</p>
+	</section>
+
+	<section class="section section-lined">
+		<div class="section-head">
+			<div>
+				<h2>最近の更新</h2>
+			</div>
+		</div>
+		<ul class="updates-list">
+			{
+				updates.map((item) => (
+					<li class="update-item">
+						<p class="entry-meta">{item.date}</p>
+						<div class="update-body">
+							<h3>{item.title}</h3>
+							<p>{item.description}</p>
+						</div>
+					</li>
+				))
+			}
+		</ul>
 	</section>
 </BaseLayout>

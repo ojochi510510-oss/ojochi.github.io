@@ -8,8 +8,9 @@ const { title, currentPath = "/" } = Astro.props;
 const BASE_URL = import.meta.env.BASE_URL;
 const navItems = [
 	{ href: `${BASE_URL}`, label: "Home" },
-	{ href: `${BASE_URL}news/`, label: "お知らせ" },
-	{ href: `${BASE_URL}blog/`, label: "Blog" },
+	{ href: `${BASE_URL}profile/`, label: "Profile" },
+	{ href: `${BASE_URL}works/`, label: "Works" },
+	{ href: `${BASE_URL}note/`, label: "Note" },
 ];
 const normalizePath = (value: string) => (value.endsWith("/") ? value : `${value}/`);
 const activePath = normalizePath(currentPath);
@@ -18,7 +19,7 @@ const activePath = normalizePath(currentPath);
 <header class="site-header">
 	<div class="container header-inner">
 		<div class="site-brand">
-			<p class="site-kicker">Personal archive</p>
+			<p class="site-kicker">Quiet personal directory</p>
 			<p class="site-title"><a href={BASE_URL}>{title}</a></p>
 		</div>
 		<nav class="site-nav" aria-label="メインナビゲーション">

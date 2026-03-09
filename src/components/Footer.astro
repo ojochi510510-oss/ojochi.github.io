@@ -1,5 +1,9 @@
+---
+import { siteMeta } from "../data/site";
+---
+
 <footer class="site-footer">
-	<div class="container">
-		<p>&copy; {new Date().getFullYear()} ojochiの作業部屋</p>
+	<div class="container footer-inner">
+		<p class="footer-copy">&copy; {new Date().getFullYear()} {siteMeta.title}</p>
 	</div>
 </footer>

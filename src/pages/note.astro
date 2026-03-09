@@ -1,0 +1,39 @@
+---
+import PageIntro from "../components/PageIntro.astro";
+import { noteConfig, noteThemes } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Note" description="note に置いている文章群への案内ページです。">
+	<section class="section">
+		<PageIntro
+			kicker="Note"
+			title="長い文章は、もう少し奥の場所に置いています。"
+			lead="このページでは、note にまとめていくテーマと読み方の入口だけを静かに案内します。"
+		/>
+		<div class="prose">
+			<p>{noteConfig.description}</p>
+			<p>
+				テーマごとに読み始められるようにしつつ、後から URL を差し替えやすい構成にしています。
+			</p>
+		</div>
+	</section>
+
+	<section class="section section-lined">
+		<div class="text-list">
+			{
+				noteThemes.map((theme) => (
+					<article class="text-entry">
+						<h2>{theme.title}</h2>
+						<p>{theme.description}</p>
+						<p class="section-link">
+							<a href={noteConfig.url} target="_blank" rel="noreferrer">
+								このテーマの入口を開く
+							</a>
+						</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

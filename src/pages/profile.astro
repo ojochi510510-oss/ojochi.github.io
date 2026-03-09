@@ -1,0 +1,33 @@
+---
+import PageIntro from "../components/PageIntro.astro";
+import { profileSections, siteMeta } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Profile" description="人物紹介と関心の輪郭をまとめたページです。">
+	<section class="section">
+		<PageIntro
+			kicker="Profile"
+			title="つくる前の静けさごと、少しずつ整えていく人です。"
+			lead="経歴を並べるより、関心の向きと制作の温度が伝わることを優先してまとめています。"
+		/>
+		<div class="prose">
+			<p>{siteMeta.intro}</p>
+		</div>
+	</section>
+
+	<section class="section section-lined">
+		<div class="essay-list">
+			{
+				profileSections.map((section) => (
+					<section class="essay-block">
+						<h2>{section.title}</h2>
+						<div class="prose">
+							{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+						</div>
+					</section>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>

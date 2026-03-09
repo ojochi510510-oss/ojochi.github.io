@@ -1,0 +1,31 @@
+---
+import PageIntro from "../components/PageIntro.astro";
+import { works } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Works" description="現在取り組んでいる制作物や記録の一覧です。">
+	<section class="section">
+		<PageIntro
+			kicker="Works"
+			title="完成品だけでなく、途中の手つきも含めた制作の一覧です。"
+			lead="サムネイルに頼らず、タイトル、領域、短い説明だけで輪郭が見えるようにしています。"
+		/>
+	</section>
+
+	<section class="section section-lined">
+		<div class="works-list">
+			{
+				works.map((item) => (
+					<article class="work-entry">
+						<div class="work-heading">
+							<h2>{item.title}</h2>
+							<p class="entry-meta">{item.category}</p>
+						</div>
+						<p>{item.description}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</BaseLayout>
