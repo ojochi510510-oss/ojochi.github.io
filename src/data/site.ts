@@ -7,19 +7,19 @@ export const siteMeta = {
 	// 	"残したいものを好きなだけ残していきます。",
 };
 
-export const noteConfig = {
+export const NoteConfig = {
 	url: "https://note.com/ojpchi_tokotoko",
-	label: "noteを見る",
+	label: "Noteを見る",
 	description:
-		"長めの文章や制作の背景は note 側にまとめ、こちらには入口だけを置いています。",
+		"長めの文章や制作の背景は Note 側にまとめ、こちらには入口だけを置いています。",
 };
 
 export const orientationPoints = [
 	"ここはojochiが作りたいものを好きなだけ作って残していく場所となっています。",
-	"ntoeには日記とか考えたことを、worksにはコンテンツや作品などを残していきます。",
+	"Noteには日記とか考えたことを、Worksにはコンテンツや作品などを残していきます。",
 ];
 
-export const works = [
+export const Works = [
 	{
 		title: "パスケース",
 		category: "革細工",
@@ -46,7 +46,7 @@ export const works = [
 	// },
 ];
 
-export const noteThemes = [
+export const NoteThemes = [
 	{
 		title: "日記",
 		description:
@@ -59,27 +59,27 @@ export const noteThemes = [
 	// },
 ];
 
-export const osanpoEntries = [
+export const OsanpoEntries = [
 	//ここにお散歩履歴を書いて更新んする
 	{
 		date: "2026/03/09",
 		title: "お散歩：昼",
-		note: "お散歩しました。",
+		Note: "お散歩しました。",
 	},
 	// {
 	// 	date: "2026/03/07",
 	// 	title: "お散歩",
-	// 	note: "革は完成した瞬間より、使い始めてからのほうが面白いのではと考えた。",
+	// 	Note: "革は完成した瞬間より、使い始めてからのほうが面白いのではと考えた。",
 	// },
 	// {
 	// 	date: "2026/03/05",
 	// 	title: "お散歩",
-	// 	note: "散歩の途中で、言葉は整理するより先に拾っておくべきだと感じた。",
+	// 	Note: "散歩の途中で、言葉は整理するより先に拾っておくべきだと感じた。",
 	// },
 	// {
 	// 	date: "2026/03/03",
 	// 	title: "お散歩",
-	// 	note: "静かな画面は、情報が少ないのではなく、置き方が静かなのだと思った。",
+	// 	Note: "静かな画面は、情報が少ないのではなく、置き方が静かなのだと思った。",
 	// },
 ];
 
@@ -101,7 +101,7 @@ export const profileSections = [
 	// 	title: "いま作っているもの",
 	// 	paragraphs: [
 	// 		"小さな革小物の試作、制作記録の整理、考えを長文へ育てるためのノートづくりを並行しています。",
-	// 		"完成品だけでなく、途中で揺れた判断や、まだ名前のついていない興味も、このサイトと note のあいだで少しずつ整えていく予定です。",
+	// 		"完成品だけでなく、途中で揺れた判断や、まだ名前のついていない興味も、このサイトと Note のあいだで少しずつ整えていく予定です。",
 	// 	],
 	// },
 ];

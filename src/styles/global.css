@@ -284,9 +284,9 @@ a:hover {
 
 .text-list,
 .essay-list,
-.works-list,
+.Works-list,
 .updates-list,
-.osanpo-list {
+.Osanpo-list {
 	display: grid;
 	gap: 1.35rem;
 }
@@ -295,16 +295,16 @@ a:hover {
 .essay-block,
 .work-entry,
 .update-item,
-.osanpo-record {
+.Osanpo-record {
 	padding-top: 1.15rem;
 	border-top: var(--line-soft);
 }
 
 .text-list > :first-child,
 .essay-list > :first-child,
-.works-list > :first-child,
+.Works-list > :first-child,
 .updates-list > :first-child,
-.osanpo-list > :first-child {
+.Osanpo-list > :first-child {
 	padding-top: 0;
 	border-top: none;
 }
@@ -381,7 +381,7 @@ a:hover {
 	margin-top: 0.9rem;
 }
 
-.osanpo-record p {
+.Osanpo-record p {
 	margin: 0;
 	color: var(--color-text-muted);
 }

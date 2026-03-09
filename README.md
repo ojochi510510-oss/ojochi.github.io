@@ -24,12 +24,12 @@ npm run preview
 サイト内の文章や導線は `src/data/site.ts` にまとめています。
 
 - `siteMeta`: サイト名とイントロ
-- `works`: Works ページと Home のプレビューに表示する内容
-- `noteThemes`: Home に表示する note の案内
-- `osanpoEntries`: お散歩ページと Home の記録表示
+- `Works`: Works ページと Home のプレビューに表示する内容
+- `NoteThemes`: Home に表示する Note の案内
+- `OsanpoEntries`: お散歩ページと Home の記録表示
 - `profileSections`: Profile ページの本文構成
 - `updates`: Home 下部の更新欄
-- `noteConfig.url`: note の外部URL
+- `NoteConfig.url`: Note の外部URL
 
 更新欄は次のような配列を増やすだけで差し替えできます。
 
@@ -38,7 +38,7 @@ export const updates = [
   {
     date: "2026.03.09",
     title: "案内所としての構成に整えました",
-    description: "人となり、制作、note への入口が先に見えるよう、導線を整理しました。",
+    description: "人となり、制作、Note への入口が先に見えるよう、導線を整理しました。",
   },
 ];
 ```

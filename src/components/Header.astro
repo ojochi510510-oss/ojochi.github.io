@@ -1,5 +1,5 @@
 ---
-import { noteConfig } from "../data/site";
+import { NoteConfig } from "../data/site";
 
 interface Props {
 	title: string;
@@ -11,9 +11,9 @@ const BASE_URL = import.meta.env.BASE_URL;
 const navItems = [
 	{ href: `${BASE_URL}`, label: "Home" },
 	{ href: `${BASE_URL}profile/`, label: "Profile" },
-	{ href: `${BASE_URL}osanpo/`, label: "osanpo" },
-	{ href: noteConfig.url, label: "note", external: true },
-	{ href: `${BASE_URL}works/`, label: "Works" },
+	{ href: `${BASE_URL}Osanpo/`, label: "Osanpo" },
+	{ href: NoteConfig.url, label: "Note", external: true },
+	{ href: `${BASE_URL}Works/`, label: "Works" },
 ];
 const normalizePath = (value: string) => (value.endsWith("/") ? value : `${value}/`);
 const activePath = normalizePath(currentPath);

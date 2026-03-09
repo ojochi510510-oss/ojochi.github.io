@@ -2,17 +2,17 @@
 import PageIntro from "../components/PageIntro.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
-	noteConfig,
-	noteThemes,
-	osanpoEntries,
+	NoteConfig,
+	NoteThemes,
+	OsanpoEntries,
 	orientationPoints,
 	siteMeta,
 	updates,
-	works,
+	Works,
 } from "../data/site";
 
 const BASE_URL = import.meta.env.BASE_URL;
-const previewWorks = works.slice(0, 3);
+const previewWorks = Works.slice(0, 3);
 ---
 
 <BaseLayout title={siteMeta.title} description={siteMeta.description}>
@@ -28,9 +28,9 @@ const previewWorks = works.slice(0, 3);
 			</p>
 			<p class="hero-links">
 				<a href={`${BASE_URL}profile/`}>Profile</a>
-				<a href={`${BASE_URL}osanpo/`}>osanpo</a>
-				<a href={noteConfig.url} target="_blank" rel="noreferrer">note</a>
-				<a href={`${BASE_URL}works/`}>works</a>				
+				<a href={`${BASE_URL}Osanpo/`}>Osanpo</a>
+				<a href={NoteConfig.url} target="_blank" rel="noreferrer">Note</a>
+				<a href={`${BASE_URL}Works/`}>Works</a>				
 			</p>
 		</div>
 	</section>
@@ -76,16 +76,16 @@ const previewWorks = works.slice(0, 3);
 		</div>
 		<div class="text-list">
 			{
-				osanpoEntries.slice(0, 3).map((entry) => (
-					<article class="text-entry osanpo-entry">
+				OsanpoEntries.slice(0, 3).map((entry) => (
+					<article class="text-entry Osanpo-entry">
 						<p class="entry-meta">{entry.date} {entry.title}</p>
-						<p>{entry.note}</p>
+						<p>{entry.Note}</p>
 					</article>
 				))
 			}
 		</div>
 		<p class="section-link">
-			<a href={`${BASE_URL}osanpo/`}>お散歩の記録へ</a>
+			<a href={`${BASE_URL}Osanpo/`}>お散歩の記録へ</a>
 		</p>
 	</section>
 
@@ -93,12 +93,12 @@ const previewWorks = works.slice(0, 3);
 	<section class="section section-lined">
 		<div class="section-head">
 			<div>
-				<h2>note</h2>
+				<h2>Note</h2>
 			</div>
 		</div>
 		<div class="text-list">
 			{
-				noteThemes.map((theme) => (
+				NoteThemes.map((theme) => (
 					<article class="text-entry">
 						<h3>{theme.title}</h3>
 						<p>{theme.description}</p>
@@ -107,8 +107,8 @@ const previewWorks = works.slice(0, 3);
 			}
 		</div>
 		<p class="section-link">
-			<a href={noteConfig.url} target="_blank" rel="noreferrer">
-				{noteConfig.label}
+			<a href={NoteConfig.url} target="_blank" rel="noreferrer">
+				{NoteConfig.label}
 			</a>
 		</p>
 	</section>
@@ -116,7 +116,7 @@ const previewWorks = works.slice(0, 3);
 	<section class="section section-lined">
 		<div class="section-head">
 			<div>
-				<h2>ojochi works</h2>
+				<h2>ojochi Works</h2>
 			</div>
 		</div>
 		<div class="text-list">
@@ -131,7 +131,7 @@ const previewWorks = works.slice(0, 3);
 			}
 		</div>
 		<p class="section-link">
-			<a href={`${BASE_URL}works/`}>Worksへ</a>
+			<a href={`${BASE_URL}Works/`}>Worksへ</a>
 		</p>
 	</section>
 

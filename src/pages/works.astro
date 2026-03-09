@@ -1,6 +1,6 @@
 ---
 import PageIntro from "../components/PageIntro.astro";
-import { works } from "../data/site";
+import { Works } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -8,15 +8,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	<section class="section">
 		<PageIntro
 			kicker="Works"
-			title="ojochi works"
+			title="ojochi Works"
 			lead="好きなだけモノづくりします。"
 		/>
 	</section>
 
 	<section class="section section-lined">
-		<div class="works-list">
+		<div class="Works-list">
 			{
-				works.map((item) => (
+				Works.map((item) => (
 					<article class="work-entry">
 						<div class="work-heading">
 							<h2>{item.title}</h2>
