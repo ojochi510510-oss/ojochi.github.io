@@ -11,9 +11,9 @@ const BASE_URL = import.meta.env.BASE_URL;
 const navItems = [
 	{ href: `${BASE_URL}`, label: "Home" },
 	{ href: `${BASE_URL}profile/`, label: "Profile" },
-	{ href: `${BASE_URL}Osanpo/`, label: "Osanpo" },
+	{ href: `${BASE_URL}osanpo/`, label: "Osanpo" },
 	{ href: NoteConfig.url, label: "Note", external: true },
-	{ href: `${BASE_URL}Works/`, label: "Works" },
+	{ href: `${BASE_URL}works/`, label: "Works" },
 ];
 const normalizePath = (value: string) => (value.endsWith("/") ? value : `${value}/`);
 const activePath = normalizePath(currentPath);
